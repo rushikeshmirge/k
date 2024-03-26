@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>5-Day Weather Forecast</title>
+</head>
+<body>
+  <h1>5-दिवसीय मौसम पूर्वानुमान</h1>
+  <label for="location">स्थान प्रविष्ट करा (शहर, देश): </label>
+  <input type="text" id="location" placeholder="उदा., मुंबई, भारत">
+  <button onclick="getWeather()">शोधा</button>
+  <div id="weatherResult"></div>
+
+  <script>
+    function getWeather() {
+      const locationInput = document.getElementById('location');
+      const location = locationInput.value;
+
+      fetch('https://api.openweathermap.org/data/2.5/forecast?q=${location}&lang=mr&appid=e04f62a06219c9031b62887af46c0b00')
+        .then(response => response.json())
+        .then(data => {
+          const weatherResult = document.getElementById('weatherResult');
+          weatherResult.innerHTML = '';
+
+          for (let i = 0; i < data.list.length; i += 8) { // Data is provided every 3 hours, so skip every 8th entry for daily forecast
+            const forecast = data.list[i];
+            const date = new Date(forecast.dt * 1000);
+
+            weatherResult.innerHTML += `
+              <p>दिनांक: ${date.toLocaleDateString()}</p>
+              <p>तापमान: ${forecast.main.temp} &deg;C</p>
+              <p>मौसम: ${forecast.weather[0].description}</p>
+              <p>आचारधर्म: ${forecast.weather[0].main}</p>
+              <p>आचारधर्म वर्णन: ${forecast.weather[0].description}</p>
+              <hr>
+            `;
+          }
+        })
+        .catch(error => {
+setTimeout(() => {
+            console.error('मौसम डेटा आपलोड करताना त्रुटी:', error);
+  
+}, timeout);        });
+    }
+  </script>
+</body>
+</html>

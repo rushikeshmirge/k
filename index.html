@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="design.css">
+    <style>
+        /* @media only screen and (max-width: 600px){ 
+            
+        } */
+    </style>
+    <title>e-krushivaidya</title>
+</head>
+<body>
+    <header>
+        <div class="top-bar">
+            <div class="logo">
+                <img src="images/watermark.jpeg" alt="e-कृषिवैद्य Logo">
+            </div>
+            <div class="menu-bar">
+                <a href="index.html ">होम</a>
+                <a href="आमच्याविषयी.html">आमच्याविषयी</a>
+                <a href="product.html">औषधे</a>
+                <a href="contact.html">संपर्क</a>
+            </div>
+            <div class="auth-buttons">
+                <a href="login.html">
+                <button class="login-btn">लॉगिन</button>
+
+                </a>
+                <a href="register.html">         
+                           <button class="register-btn">रजिस्टर</button>
+                </a>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="video-container">
+            <video autoplay muted loop id="video-background">
+                <source src="images/tracter.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            </div>
+        <div class="welcome-section">
+            <h1>E-कृषिवैद्य वर आपले स्वागत आहे</h1>
+            <div class="slider-container">
+                <div class="slider">
+                    <div class="slide">
+                        <img src="images/163bf1c3-188a-450a-a7c7-0145a42eb164.jpg" alt="Farmers Poster">
+                    </div>
+                    <div class="slide">
+                        <img src="images/slider3.jpeg" alt="Farmers Poster">
+                     </div>
+                    <div class="slide">
+                        <img src="images/slider1.jpeg" alt="Farmers Poster">
+                    </div>
+                    <div class="slide">
+                        <img src="images/slider4.jpeg" alt="Farmers Poster">
+                    </div>
+                    <div class="slide">
+                        <img src="images/slider5.jpeg" alt="Farmers Poster">
+                    </div>
+                    <!-- Add more slides as needed -->
+                </div>
+            </div>
+            <!-- <div class="poster">
+                <img src="img/163bf1c3-188a-450a-a7c7-0145a42eb164.jpg" alt="Farmers Poster">
+            </div> -->
+        </div>
+        <div class="card-container">
+            <div class="card">
+                <h2>QR स्कॅन कसा करावा</h2>
+                <img src="images/VID-20240213-WA0007.gif" alt="">
+                <p> प्रोडक्टसची संपूर्ण माहितीसाठी QR कोड स्कॅन करा</p>
+                <button class="btn" onclick="location.href='1card.html'">आणखी पहा</button>
+            </div>
+            <div class="card">
+                <h2>शेतीविषयक बातम्या</h2>
+                <img src="images/giphy (1).gif" alt="">
+
+                <p>शेतीविषयक माहिती आणि संबंधित बातम्या पाहा</p>
+                <button class="btn" onclick="location.href='https://www.mieshetkari.com/'">आणखी पहा</button>
+
+            </div>
+            <div class="card">
+                <h2>हवामान अपडेट्स</h2>
+                <img src="images/85b7480ca7bbbda50294df2a7cedcbef.gif" alt="">
+                <p>आपल्या क्षेत्रातील वातावरण अपडेट्स पहा</p>
+                <button class="btn" onclick="location.href='weather.html'">आणखी पहा</button>
+
+            </div>
+        </div>
+        <div class="card-container">
+            <div class="card">
+                <h2>नवीन तंत्रज्ञाने</h2>
+                <img src="images/farmer-using-automated-watering-copter-8804375-7114663.gif" alt="">
+                <p>शेती क्षेत्रातील नवीन तंत्रज्ञाने प्राप्त करा</p>
+<button class="btn" onclick="location.href='newtech.html'">आणखी पहा</button>
+
+            </div>
+            <div class="card">
+                <h2>शेतीविषयक सल्ले</h2>
+                <img src="images/bird.gif" alt="">
+                <p>शेतीवियक आधुनिक सल्ले पाहा</p>
+                <button class="btn" onclick="location.href='1.html'">आणखी पहा</button>
+
+            </div>
+            <div class="card">
+                <h2>यशस्वी शेतकरी</h2>
+                <img src="images/doller.gif" alt="">
+
+                <p>आपल्या क्षेत्रातील सफल किसानांच्या गोष्टी पहा</p>
+                <button class="btn" onclick="location.href='1.html'">आणखी पहा</button>
+
+            </div>
+        </div>
+        <script type="text/javascript" src="quagga.js"></script>
+
+    </main>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <footer>
+        <p>© 2024 E-कृषिवैद्य.</p>
+        <!-- Social media icons and links go here -->
+    </footer>
+    <script>
+         const slider = document.querySelector('.slider');
+    let isTransitioning = false;
+
+    function nextSlide() {
+        if (!isTransitioning) {
+            isTransitioning = true;
+            slider.style.transition = 'transform 0.8s ease-in-out';
+            slider.style.transform = 'translateX(-100%)';
+
+            // After transition, move the first slide to the end
+            setTimeout(() => {
+                const firstSlide = slider.firstElementChild;
+                slider.appendChild(firstSlide);
+                slider.style.transition = 'none';
+                slider.style.transform = 'translateX(0)';
+                isTransitioning = false;
+            }, 800);
+        }
+    }
+
+    // Call nextSlide function periodically to create a loop
+    setInterval(nextSlide, 3000); // Change slide every 3 seconds (adjust as needed)
+
+    
+
+    </script>
+    
+</body>
+</html>
